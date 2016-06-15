@@ -1,0 +1,25 @@
+{
+  "name": "BusTravelCR",
+  "homepage": "https://github.com/yorbigmendez/BusTravelCR",
+  "authors": [
+    "Yorbi Mendez <yorbigmendez@gmail.com>"
+  ],
+  "description": "Bus routes around Costa Rica",
+  "main": "",
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery-ui": "^1.11.4",
+    "bootstrap": "^3.3.6",
+    "angular": "angularjs#^1.5.6",
+    "angular-route": "^1.5.6",
+    "materialize-clockpicker": "*"
+  }
+}

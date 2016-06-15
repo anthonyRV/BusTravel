@@ -1,0 +1,133 @@
+
+<head>
+    <meta charset="utf-8">
+    <!-- JQuery -->
+    <script src="../bower_components/jquery/dist/jquery.min.js"></script>
+    <!-- Angular -->
+    <script src="../bower_components/angular/angular.min.js"></script>
+    <!-- APP -->
+    <script src="../app.js"></script>
+    <script src="./home.controller.js"></script>
+
+    <!-- Bootstrap -->
+    <link href="../bower_components/bootstrap/dist/css/bootstrap.min.css" type="text/css" rel="stylesheet">
+    <!-- Bootstrap Material -->
+    <link href="../bower_components/bootstrap-material-design/dist/css/bootstrap-material-design.css" type="text/css" rel="stylesheet">
+    <link href="../bower_components/bootstrap-material-design/dist/css/ripples.min.css" type="text/css" rel="stylesheet">
+    <!-- Compiled and minified CSS-->
+    <link href="../styles/style.css" type="text/css" rel="stylesheet">
+    <!-- Compiled and minified JavaScript -->
+    <!-- Bootstrap Script -->
+    <script src="../bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+    <!--Bower JS-->
+    <link href="../bower_components/bootstrap-material-design/dist/js/material.min.js" type="text/css" rel="stylesheet">
+</head>
+
+<body ng-App="MapsApplication" ng-controller="homeController">
+    <!-- Page Header--->
+    <div id="header">
+        <div class="bs-component">
+            <div class="navbar navbar-default">
+                <div class="container-fluid">
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <a class="navbar-brand" href="../home/home.html">BusTravelCR</a>
+                    </div>
+                    <div class="navbar-collapse collapse navbar-responsive-collapse">
+                        <ul class="nav navbar-nav">
+                            <li ><a href="../home/home.html">Home</a></li>
+                            <li><a href="#">About</a></li>
+                            <li><a href="#">Bus</a></li>
+                            <li><a href="../map/map.html">Maps</a></li>
+                        </ul>
+                        <form class="navbar-form navbar-left">
+                            <div class="form-group">
+                                <input type="text" class="form-control col-md-8" placeholder="Search">
+                            </div>
+                        </form>
+                        <ul class="nav navbar-nav navbar-right">
+                            <li class="dropdown">
+                                <a href="bootstrap-elements.html" data-target="#" class="dropdown-toggle" data-toggle="dropdown">Admin
+                      <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="../admin/admin.new_terminal.html">Add Terminal</a></li>
+                                    <li><a href="../admin/admin.new_route.html">Add Route</a></li>
+                                    <li><a href="#">Add bus schedule</a></li>
+                                    <li class="divider"></li>
+                                    <li><a href="../admin/admin.view_terminal.html">View Terminals</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <img src="../images/bus-home.jpeg" style="width:100%; height:100%;">
+    </div>
+    <div class="row">
+        <h1 style="text-align:center;margin-top:5%;">OUR SERVICES</h1>
+        <div class="span_of_4">
+            <!-- start span_of_4 -->
+            <div class="col-md-3 span1_of_4">
+                <div class="span4_of_list">
+                    <div class="img_round">
+                        <img src="../images/bus_img.png">
+                    </div>
+                    <h3>Bus Station</h3>
+                    <p>Checking out the bus companies that are in Costa Rica will get you familiarized with the buses that you are going to take on your new trip around the country.</p>
+                    <div class="read_more">
+                        <a class="btn btn-2 active" href="#">Check the Buses</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 span1_of_4">
+                <div class="span4_of_list">
+                    <div class="img_round">
+                        <img src="../images/route_img.png">
+                    </div>
+                    <h3>Bus Routes</h3>
+                    <p>Costa Rica has many bus routes, check out the bus routes to see where you are heading to exactly.</p>
+
+                    <div class="read_more">
+                        <a class="btn btn-2b" href="../map/map.html">Bus Routes</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 span1_of_4">
+                <div class="span4_of_list">
+                    <div class="img_round">
+                        <img src="../images/plan_your_trip_img.png">
+                    </div>
+                    <h3>Plan Your Trip</h3>
+                    <p class="center">Planning your trip has never been this easy, just tell us where you are currently at and where you are heading to on your trip and we will do the rest.</p>
+                    <div>
+                        <a class="btn btn-2b" href="../map/map.html">Plan my trip!</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 span1_of_4">
+                <div class="span4_of_list">
+                    <div class="img_round">
+                        <img src="../images/about_img.png">
+                    </div>
+                    <center>
+                        <h3>About Us</h3>
+                        <p>This webpage has been created by two students from the Costa Rican Institute of Technology, seeking to give people information about the buses and their routes in Costa Rica. </p>
+                    
+                    <div class="read_more">
+                        <a class="btn btn-2b" ui-sref="about">Tell me more!</a>
+                    </div>
+                    </center>
+                </div>
+            </div>
+            <div class="clearfix"></div>
+        </div>
+        <!-- end span_of_4 -->
+    </div>
+</body>

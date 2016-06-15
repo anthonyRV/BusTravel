@@ -1,0 +1,74 @@
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <!-- JQuery -->
+    <script src="../bower_components/jquery/dist/jquery.min.js"></script>
+    <!-- Angular -->
+    <script src="../bower_components/angular/angular.min.js"></script>
+    <!-- APP -->
+    <script src="../app.js"></script>
+    <script src="./admin.controller.js"></script>
+
+    <!-- Bootstrap -->
+    <link href="../bower_components/bootstrap/dist/css/bootstrap.min.css" type="text/css" rel="stylesheet">
+    <!-- Bootstrap Material -->
+    <link href="../bower_components/bootstrap-material-design/dist/css/bootstrap-material-design.css" type="text/css" rel="stylesheet">
+    <link href="../bower_components/bootstrap-material-design/dist/css/ripples.min.css" type="text/css" rel="stylesheet">
+    <!-- Compiled and minified CSS-->
+    <link href="../styles/style.css" type="text/css" rel="stylesheet">
+    <!-- Compiled and minified JavaScript -->
+    <!-- Bootstrap Script uigbjhgb -->
+    <script src="../bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+    <!--Bower JS-->
+    <link href="../bower_components/bootstrap-material-design/dist/js/material.min.js" type="text/css" rel="stylesheet">
+</head>
+
+<body ng-App="MapsApplication" ng-controller="adminController">
+    <!-- Page Header--->
+    <div id="header">
+        <div ng-include="'../template/header.html'"></div>
+    </div>
+ <!-- CONTAINER STUFF--->
+    <div class="container">
+        <div class="row center">
+            <br>
+            <br>
+            <h1 class="header center">New Route</h1>
+            <br>
+            <br>
+
+        </div>
+        <div class="row card-panel hooverable">
+            <div class="col-md-6">
+                <form novalidate class="simple-form" name="addBusTerminal">
+                    <div class="row">
+                        <div class="col-md-10 col-md-offset-1">
+
+                        </div>
+                    </div>
+
+                    <div class="row center" style="margin-top: 50;margin-bottom:50;">
+                        <div class="input-field col s12 col-md-offset-6">
+                            Time should go here
+                        </div>
+                    </div>
+                    <div class="row center">
+                        <button type="submit" class="btn-large waves-effect waves-light teal lighten-1" ng-click="showDialog()">Add Route</button>
+                    </div>
+
+                </form>
+            </div>
+
+            <div class="col-md-6">
+                <div class="row" style="height:500px;background-color:#000000">
+                    <p> Mapa aqui</p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <div ng-include="'../templates/footer.html'"></div>
+</body>
+
+</html>
