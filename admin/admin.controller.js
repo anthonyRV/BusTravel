@@ -13,10 +13,6 @@ angular.module('MapsApplication', []).controller("adminController", function ($s
             , district: ['Gulmi', "Palpa"]
         }
     ];
-
-
-
-
     //name of terminal
     $scope.busTerminal = "";
     //Add terminal, going to be locationXY in parameter
@@ -60,14 +56,6 @@ angular.module('MapsApplication', []).controller("adminController", function ($s
         if (zoom == 'out') {
             console.log('On Zoom Out');
         }
-    };
-    $scope.select = {
-        value: "Option1"
-        , choices: ["Option1", "I'm an option", "This is materialize", "No, this is Patrick."]
-    };
-    $scope.showDialog = function () {
-        console.log("Going to change attribute");
-        $scope.showDialog = true;
     };
 
     function load() {

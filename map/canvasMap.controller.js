@@ -1,5 +1,20 @@
 angular.module('MapsApplication',[]).controller("canvasController", function ($scope, $http) {
-   
+    //Access to admin, credentials
+    $scope.credentials = {
+            user: "admin",
+            pass: "admin"
+    };
+    $scope.user = 'Username';
+    $scope.pass = 'Password';
+    $scope.goAdmin = function(view){
+        if($scope.user == $scope.credentials.user && $scope.pass == $scope.credentials.pass){
+            console.log("Credentials are equa, continue");
+            $location.url('/admin/'+view);
+        }else{
+            console.log("Credentials are not equa, continue");
+        }
+    };
+
     $scope.distritos = new Object();
 
     //Dimensiones del visor
@@ -90,4 +105,6 @@ angular.module('MapsApplication',[]).controller("canvasController", function ($s
         });
     };
     $scope.obtenerDistritos();
+    //Days
+    $scope.days = ['Monday',"Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"];
 });

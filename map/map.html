@@ -1,4 +1,3 @@
-
 <head>
     <meta charset="utf-8">
     <!-- JQuery -->
@@ -24,6 +23,33 @@
 </head>
 
 <body ng-App="MapsApplication" ng-controller="canvasController">
+    <!-- Modal--->
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
+        <div class="modal-dialog" role="document" >
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="exampleModalLabel">Admin Autentication</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group" style="margin-left:10%;margin-right:20%;">
+                        <input type="text" style="text-align:center;" class="form-control" id="recipient-name" ng-model="user"> <br>
+                        <input type="password" style="text-align:center;"  class="form-control" id="message-text" ng-model="pass">
+                    </div>
+                </div>
+                <div class="modal-footer">
+                   <div class="row">
+                    <div class="col-md-4">
+                        <a class="btn btn-raised btn-warning" data-dismiss="modal">Cancel</a>
+                    </div>
+                    <div class="col-md-6">
+                       <a class="btn btn-raised btn-success" href="../admin/admin.new_terminal.html">Continue</a>
+                    </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
     <!-- Page Header--->
     <div id="header">
         <div class="bs-component">
@@ -39,9 +65,8 @@
                     </div>
                     <div class="navbar-collapse collapse navbar-responsive-collapse">
                         <ul class="nav navbar-nav">
-                            <li ><a href="../home/home.html">Home</a></li>
+                            <li><a href="../home/home.html">Home</a></li>
                             <li><a href="#">About</a></li>
-                            <li><a href="#">Bus</a></li>
                             <li><a href="../map/map.html">Maps</a></li>
                         </ul>
                         <form class="navbar-form navbar-left">
@@ -50,16 +75,8 @@
                             </div>
                         </form>
                         <ul class="nav navbar-nav navbar-right">
-                            <li class="dropdown">
-                                <a href="bootstrap-elements.html" data-target="#" class="dropdown-toggle" data-toggle="dropdown">Admin
-                      <b class="caret"></b></a>
-                                <ul class="dropdown-menu">
-                                    <li><a href="../admin/admin.new_terminal.html">Add Terminal</a></li>
-                                    <li><a href="../admin/admin.new_route.html">Add Route</a></li>
-                                    <li><a href="#">Add bus schedule</a></li>
-                                    <li class="divider"></li>
-                                    <li><a href="../admin/admin.view_terminal.html">View Terminals</a></li>
-                                </ul>
+                            <li >
+                                <a data-toggle="modal" data-target="#exampleModal" href="../admin/admin.view_terminal.html">Admin</a>
                             </li>
                         </ul>
                     </div>
@@ -67,17 +84,97 @@
             </div>
         </div>
     </div>
+    <div class="row" style="margin-top:10px;margin-bottom:10px;">
+        <h1 style="text-align:center;">Bus Travelers</h1>
+        <h4 class="leal" style="text-align:center;">Finding your way around Costa Rica has never been this easy!</h4>
+    </div>
+    <img src="../images/backpack_girl_background.jpg" style="width:100%; height:85%;">
+    <!-- Collapsabile-->
+    <div class="row transparent" style="margin-top:20px;padding-bottom:30px;">
+        <div style="margin-left:10%; margin-right:10%; margin-top:5%; margin-bottom:5%;">
+            <div class="col-md-4 col-md-offset-1">
+                <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+                    <!-- Plan your trip-->
+                    <div class="panel panel-default">
+                        <div class="panel-heading" role="tab" id="headingOne">
+                            <h4 class="panel-title">
+                            <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                              Plan your trip
+                            </a>
+                        </h4>
+                        </div>
+                        <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+                            <div class="panel-body">
+                                <div class="row">
+                                    <div class="form-group">
+                                        <div class="col-md-6">
+                                            <div class="inner-addon left-addon">
+                                                <i class="glyphicon glyphicon-home"></i>
+                                                <input type="text" class="form-control" placeholder="Origen" />
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="inner-addon left-addon">
+                                                <i class="glyphicon glyphicon-plane"></i>
+                                                <input type="text" class="form-control" placeholder="Destination" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row" style="margin-left:5px;margin-right:5px;margin-top:20px;">
+                                    <select name="repeatSelect" id="repeatSelect" style="width:100%;text-align:center;">
+                                        <option>Traveling day</option>
+                                        <option ng-repeat="day in days" value="{{day}}">{{day}}</option>
+                                    </select>
+                                </div>
+                                <button class="btn btn-raised btn-success" style="width:100%;">Continue</button>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Bus Routes-->
+                    <div class="panel panel-default">
+                        <div class="panel-heading" role="tab" id="headingTwo">
+                            <h4 class="panel-title">
+                            <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                              Bus Routes
+                            </a>
+                      </h4>
+                        </div>
+                        <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+                            <div class="panel-body">
+                                Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et.
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Terminals-->
+                    <div class="panel panel-default">
+                        <div class="panel-heading" role="tab" id="headingThree">
+                            <h4 class="panel-title">
+                            <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                              Bus Terminals
+                            </a>
+                      </h4>
+                        </div>
+                        <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+                            <div class="panel-body">
+                                <div class="form-body">
+                                    Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Canvas-->
+            <div class="col-md-7">
+                <canvas id="canvasDistritos" width="{{canvasX}}" height="{{canvasY}}" style="border:1px solid;">
 
-    <div class="row">
-        <div class="col-md-4">
+                </canvas>
+                <br><br>
+            </div>
 
-        </div>
-
-        <div class="col-md-7 col-md-offset-1">
-            <canvas id="canvasDistritos" width="{{canvasX}}" height="{{canvasY}}" style="border:1px solid;">
-
-            </canvas>
         </div>
     </div>
+    <!-- Footer-->
+    <div ng-include="'../templates/footer.html'"></div>
 </body>
-<div ng-include="'../templates/footer.html'"></div>
