@@ -1,4 +1,3 @@
-
 <head>
     <meta charset="utf-8">
     <!-- JQuery -->
@@ -24,6 +23,32 @@
 </head>
 
 <body ng-App="MapsApplication" ng-controller="homeController">
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
+        <div class="modal-dialog" role="document" >
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="exampleModalLabel">Admin Autentication</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group" style="margin-left:10%;margin-right:20%;">
+                        <input type="text" style="text-align:center;" class="form-control" id="recipient-name" ng-model="user"> <br>
+                        <input type="password" style="text-align:center;"  class="form-control" id="message-text" ng-model="pass">
+                    </div>
+                </div>
+                <div class="modal-footer">
+                   <div class="row">
+                    <div class="col-md-4">
+                        <a class="btn btn-raised btn-warning" data-dismiss="modal">Cancel</a>
+                    </div>
+                    <div class="col-md-6">
+                       <a class="btn btn-raised btn-success" href="../admin/admin.new_terminal.html">Continue</a>
+                    </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
     <!-- Page Header--->
     <div id="header">
         <div class="bs-component">
@@ -35,11 +60,11 @@
                             <span class="icon-bar"></span>
                             <span class="icon-bar"></span>
                         </button>
-                        <a class="navbar-brand" href="../home/home.html">BusTravelCR HOME</a>
+                        <a class="navbar-brand" href="../home/home.html">BusTravelCR</a>
                     </div>
                     <div class="navbar-collapse collapse navbar-responsive-collapse">
                         <ul class="nav navbar-nav">
-                            <li ><a href="../home/home.html">Home</a></li>
+                            <li><a href="../home/home.html">Home</a></li>
                             <li><a href="#">About</a></li>
                             <li><a href="#">Bus</a></li>
                             <li><a href="../map/map.html">Maps</a></li>
@@ -50,16 +75,8 @@
                             </div>
                         </form>
                         <ul class="nav navbar-nav navbar-right">
-                            <li class="dropdown">
-                                <a href="bootstrap-elements.html" data-target="#" class="dropdown-toggle" data-toggle="dropdown">Admin
-                      <b class="caret"></b></a>
-                                <ul class="dropdown-menu">
-                                    <li><a href="../admin/admin.new_terminal.html">Add Terminal</a></li>
-                                    <li><a href="../admin/admin.new_route.html">Add Route</a></li>
-                                    <li><a href="#">Add bus schedule</a></li>
-                                    <li class="divider"></li>
-                                    <li><a href="../admin/admin.view_terminal.html">View Terminals</a></li>
-                                </ul>
+                            <li >
+                                <a data-toggle="modal" data-target="#exampleModal" href="../admin/admin.view_terminal.html">Admin</a>
                             </li>
                         </ul>
                     </div>
@@ -119,10 +136,10 @@
                     <center>
                         <h3>About Us</h3>
                         <p>This webpage has been created by two students from the Costa Rican Institute of Technology, seeking to give people information about the buses and their routes in Costa Rica. </p>
-                    
-                    <div class="read_more">
-                        <a class="btn btn-2b" ui-sref="about">Tell me more!</a>
-                    </div>
+
+                        <div class="read_more">
+                            <a class="btn btn-2b">Tell me more!</a>
+                        </div>
                     </center>
                 </div>
             </div>

@@ -35,89 +35,93 @@
         <div ng-include="'../templates/header.html'"></div>
     </div>
     <!-- CONTAINER STUFF--->
-    <div>
-        <div class="container">
-            <br>
-            <div class="row">
-                <div class=" bs-component">
-                    <div class='center'>
-                        <h1 style="text-align:center;">New Hour</h1>
-                    </div>
-                </div>
-            </div>
-            <div class="row" style="margin-top:50px">
-                <div class="col-md-12" style="text-align:center;">
-                    <div class="well bs-component col-md-12">
-                        <form class=" form-horizontal">
-                            <div class="row">
+    <div class="container">
 
-                                <div class="col-md-6">
-                                    <fieldset>
-                                        <legend>Route Endpoints</legend>
-                                        <div class="form-group" style="margin-left:50px;margin-right:50px;">
-                                            <label style="text-align:center;" class="control-label" for="inputTerminal"placeholder="Begin Point">Beginning Terminal</label>
-                                            <input style="text-align:center;" class="form-control input-lg" type="text" id="inputName">
-                                            <label style="text-align:center;" class="control-label" for="inputTerminal" placeholder="End point">Ending Terminal</label>
-                                            <input style="text-align:center;" class="form-control input-lg" type="text" id="inputName">
+        <div class="row">
+            <div class="col-md-8">
+                <div class="row" style="height:400px;background-color:#000000">
+                    <p> Mapa aqui</p>
+                </div>
+            </div>
+            <div class="col-md-4" style="text-align:center;">
+                <div class="well bs-component col-md-12" style=" height:400px;">
+                    <form class=" form-horizontal">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <fieldset>
+                                    <legend>Route Endpoints</legend>
+                                    <div class="form-group" style="margin-left:50px;margin-right:50px;">
+                                        <div class="row">
+                                            <label class="control-label" for="repeatSelect">Begin point</label>
+                                            <select name="repeatSelect" id="repeatSelect">
+                                                <option></option>
+                                                <option ng-repeat="option in nombresDistritos track by $index" value="{{option}}">{{option}}</option>
+                                            </select>
                                         </div>
-                                    </fieldset>
-                                </div>
-                                <div class="col-md-6">
-                                    <fieldset>
-                                        <legend>Route Information</legend>
-                                        <div class="form-group">
-                                            <label class="control-label" for="inputTerminal" placeholder="Route Name">Route Name</label>
-                                            <input style="text-align:center;" class="form-control input-lg" type="text" id="inputName">
-                                            <label class="control-label" for="inputTerminal" placeholder="Time Estimate">Estimated Time</label>
-                                            <input style="text-align:center;" class="form-control input-lg" type="text" id="inputName">
+                                        <div class="row">
+                                            <label class="control-label" for="repeatSelect">End point</label>
+                                            <select name="repeatSelect" id="repeatSelect">
+                                                <option></option>
+                                                <option ng-repeat="option in nombresDistritos track by $index" value="{{option}}">{{option}}</option>
+                                            </select>
                                         </div>
-                                    </fieldset>
-                                </div>
+                                        <div class="row">
+                                            <p>Date picker here</p>
+                                        </div>
+                                        <div class="row">
+                                            <div class="form-group" style="margin-top: 0;">
+                                                <!-- inline style is just to demo custom css to put checkbox below input above -->
+                                                <label class="checkbox-inline">
+                                                    <input type="checkbox" id="inlineCheckbox1" value="option1"> 1
+                                                </label>
+                                                <label class="checkbox-inline">
+                                                    <input type="checkbox" id="inlineCheckbox2" value="option2"> 2
+                                                </label>
+                                                <label class="checkbox-inline">
+                                                    <input type="checkbox" id="inlineCheckbox3" value="option3"> 3
+                                                </label>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div style="margin-left:20%; margin-right:20%;">
+                                                <button type="submit" class="btn btn-raised btn-primary" ng-click="databaseAction('route','insert')">Add Terminal</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </fieldset>
+
                             </div>
-                            <div class="row">
-                                <div style="margin-left:45%; margin-right:45%;">
-                                    <button type="submit" class="btn btn-raised btn-primary" ng-click="databaseAction('route','insert')">Add Terminal</button>
-                                </div>
-                            </div>
-                        </form>
+
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12" style="margin-top:5px;">
+                <div style="margin-left:50px;margin-right:50px;">
+                    <div class="col-md-6">
+                        <legend style="text-align:center;">Map Actions</legend>
+                        <div class="col-md-12" style="text-align:center;">
+                            <img src="../images/left_icon.png" ng-click="moveMap('left')" class="img-circle" alt="Move Left" width="50" height="50">
+                            <img src="../images/up_icon.png" ng-click="moveMap('up')" class="img-circle" alt="Move Up" width="50" height="50">
+                            <img src="../images/down_icon.png" ng-click="moveMap('down')" class="img-circle" alt="Move Down" width="50" height="50">
+                            <img src="../images/right_icon.png" ng-click="moveMap('right')" class="img-circle" alt="Move Right" width="50" height="50">
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <legend style="text-align:center;">Zoom Actions</legend>
+                        <div class="col-md-12" style="text-align:center;">
+                            <img src="../images/zoom_out.png" ng-click="zoom('out')" alt="Zoom Out" width="50" height="50">
+                            <img src="../images/zoom_in.png" ng-click="zoom('in')" alt="Zoom In" width="50" height="50">
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-        <div style="background-color:#FFFFFF;">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="row" style="height:400px;background-color:#000000">
-                            <p> Mapa aqui</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-12" style="margin-top:5px;">
-                        <div style="margin-left:50px;margin-right:50px;">
-                            <div class="col-md-6">
-                                <legend style="text-align:center;">Map Actions</legend>
-                                <div class="col-md-12" style="text-align:center;">
-                                    <img src="../images/left_icon.png" ng-click="moveMap('left')" class="img-circle" alt="Move Left" width="50" height="50">
-                                    <img src="../images/up_icon.png" ng-click="moveMap('up')" class="img-circle" alt="Move Up" width="50" height="50">
-                                    <img src="../images/down_icon.png" ng-click="moveMap('down')" class="img-circle" alt="Move Down" width="50" height="50">
-                                    <img src="../images/right_icon.png" ng-click="moveMap('right')" class="img-circle" alt="Move Right" width="50" height="50">
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <legend style="text-align:center;">Zoom Actions</legend>
-                                <div class="col-md-12" style="text-align:center;">
-                                    <img src="../images/zoom_out.png" ng-click="zoom('out')" alt="Zoom Out" width="50" height="50">
-                                    <img src="../images/zoom_in.png" ng-click="zoom('in')" alt="Zoom In" width="50" height="50">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+
     </div>
+
 
     <div ng-include="'../templates/footer.html'"></div>
 </body>
