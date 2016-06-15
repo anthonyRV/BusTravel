@@ -26,83 +26,99 @@
     <link href="../bower_components/bootstrap-material-design/dist/js/material.min.js" type="text/css" rel="stylesheet">
 </head>
 
-<body ng-App="MapsApplication" ng-controller="adminController">
-    <!-- Page Header--->
+<body ng-App="MapsApplication" ng-controller="adminController" style="background-color:#F1F1F2;">
+    <!-- Page Header
+    background-color:#F1F1F2;
+    GRAY COLOR: #BCBABE
+    --->
     <div id="header">
         <div ng-include="'../templates/header.html'"></div>
     </div>
     <!-- CONTAINER STUFF--->
-    <div class="container">
-        <br>
-        <br>
-        <div class="row">
-            <div class=" bs-component">
-                <div class='center'>
-                    <h1 style="text-align:center;">Add a new terminal</h1>
+    <div>
+        <div class="container">
+            <br>
+            <div class="row">
+                <div class=" bs-component">
+                    <div class='center'>
+                        <h1 style="text-align:center;">New route</h1>
+                    </div>
                 </div>
             </div>
-        </div>
-        <br>
-        <br>
-        <div class="row">
-            <div class="col-md-12">
-                <div class="row" style="height:500px;background-color:#000000">
-                    <p> Mapa aqui</p>
-                </div>
-            </div>
-        </div>
-        <div class="row" style="margin-top:50px">
-            <div class="col-md-12" style="text-align:center;">
-                <div class="well bs-component col-md-3" style="height:300px;">
-                    <div style="margin-left:50px;margin-right:50px;">
+            <div class="row" style="margin-top:50px">
+                <div class="col-md-12" style="text-align:center;">
+                    <div class="well bs-component col-md-12">
                         <form class=" form-horizontal">
-                            <fieldset>
-                                <legend>New Terminal</legend>
-                                <div class="form-group">
-                                    <label class="control-label" for="inputTerminal">Terminal Name</label>
-                                    <input class="form-control input-lg" type="text" id="inputName">
-                                    <label class="control-label" for="inputTerminal">Terminal Name</label>
-                                    <input class="form-control input-lg" type="text" id="inputName">
-                                    <label class="control-label" for="inputTerminal">Terminal Name</label>
-                                    <input class="form-control input-lg" type="text" id="inputName">
-                                    <button type="submit" class="btn btn-raised btn-primary" ng-click="databaseAction('terminal','insert')">Add Terminal</button>
+                            <div class="row">
+
+                                <div class="col-md-6">
+                                    <fieldset>
+                                        <legend>Route Endpoints</legend>
+                                        <div class="form-group" style="margin-left:50px;margin-right:50px;">
+                                            <label style="text-align:center;" class="control-label" for="inputTerminal">Beginning Terminal</label>
+                                            <input style="text-align:center;" class="form-control input-lg" type="text" id="inputName">
+                                            <label style="text-align:center;" class="control-label" for="inputTerminal">Beginning Terminal</label>
+                                            <input style="text-align:center;" class="form-control input-lg" type="text" id="inputName">
+                                        </div>
+                                    </fieldset>
                                 </div>
-                            </fieldset>
+                                <div class="col-md-6">
+                                    <fieldset>
+                                        <legend>Route Information</legend>
+                                        <div class="form-group">
+                                            <label class="control-label" for="inputTerminal">Route Name</label>
+                                            <input style="text-align:center;" class="form-control input-lg" type="text" id="inputName">
+                                            <label class="control-label" for="inputTerminal">Estimated Time</label>
+                                            <input style="text-align:center;" class="form-control input-lg" type="text" id="inputName">
+                                        </div>
+                                    </fieldset>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div style="margin-left:45%; margin-right:45%;">
+                                    <button type="submit" class="btn btn-raised btn-primary" ng-click="databaseAction('route','insert')">Add Terminal</button>
+                                </div>
+                            </div>
                         </form>
                     </div>
                 </div>
-                <div class="well bs-component col-md-8" style="margin-left:50px;height:300px;">
-                    <div style="margin-left:50px;margin-right:50px;">
-                        <form class=" form-horizontal">
-                            <fieldset>
-                                <div class="form-group">
-                                    <div class="col-md-6" style="text-align:center;">
-                                        <p class="lead">Map Movements</p>
-                                        <img src="../images/left_icon.png" ng-click="moveMap('left')" class="img-circle" alt="Move Left" width="50" height="50">
-                                        <img src="../images/up_icon.png" ng-click="moveMap('up')" class="img-circle" alt="Move Up" width="50" height="50">
-                                        <img src="../images/down_icon.png" ng-click="moveMap('down')" class="img-circle" alt="Move Down" width="50" height="50">
-                                        <img src="../images/right_icon.png" ng-click="moveMap('right')" class="img-circle" alt="Move Right" width="50" height="50">
-                                        <br>
-                                        <p class="lead">Zoom Actions</p>
-                                        <img src="../images/zoom_out.png" ng-click="zoom('out')" alt="Zoom Out" width="50" height="50">
-                                        <img src="../images/zoom_in.png" ng-click="zoom('in')" alt="Zoom In" width="50" height="50">
-                                    </div>
-                                    <div class="col-md-6">
-                                        <p class="lead">Selected pointX:</p>
-                                        <input type="text" placeholder="X" name="pointX" style="text-align:center;width:100px;font-size: 20px;" ng-model="pointX">
-                                        <br>
-                                        <br>
-                                        <p class="lead">Selected pointY:</p>
-                                        <input type="text" placeholder="X" name="pointX" style="text-align:center;width:100px;font-size: 20px;" ng-model="pointX">
-                                    </div>
+            </div>
+        </div>
+        <div style="background-color:#FFFFFF;">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="row" style="height:400px;background-color:#000000">
+                            <p> Mapa aqui</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12" style="margin-top:5px;">
+                        <div style="margin-left:50px;margin-right:50px;">
+                            <div class="col-md-6">
+                                <legend style="text-align:center;">Map Actions</legend>
+                                <div class="col-md-12" style="text-align:center;">
+                                    <img src="../images/left_icon.png" ng-click="moveMap('left')" class="img-circle" alt="Move Left" width="50" height="50">
+                                    <img src="../images/up_icon.png" ng-click="moveMap('up')" class="img-circle" alt="Move Up" width="50" height="50">
+                                    <img src="../images/down_icon.png" ng-click="moveMap('down')" class="img-circle" alt="Move Down" width="50" height="50">
+                                    <img src="../images/right_icon.png" ng-click="moveMap('right')" class="img-circle" alt="Move Right" width="50" height="50">
                                 </div>
-                            </fieldset>
-                        </form>
+                            </div>
+                            <div class="col-md-6">
+                                <legend style="text-align:center;">Zoom Actions</legend>
+                                <div class="col-md-12" style="text-align:center;">
+                                    <img src="../images/zoom_out.png" ng-click="zoom('out')" alt="Zoom Out" width="50" height="50">
+                                    <img src="../images/zoom_in.png" ng-click="zoom('in')" alt="Zoom In" width="50" height="50">
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+
     <div ng-include="'../templates/footer.html'"></div>
 </body>
 
