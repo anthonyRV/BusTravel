@@ -45,9 +45,18 @@
         <br>
         <div class="row">
             <div class="col-md-12">
-                <div class="row" style="height:500px;">
+                <div class="row">
+                    <div class="col-md-8">
                     <canvas id="canvasDistritos" width="{{canvasX}}" height="{{canvasY}}" style="border:1px solid;">
                     </canvas>
+                        </div>
+                    <div class="col-md-4">
+                        <label class="control-label" for="inputTerminal">Distrito</label>
+                        <select name="repeatSelect" id="repeatSelect">
+                            <option></option>
+                          <option ng-repeat="option in nombresDistritos track by $index" value="{{option}}">{{option}}</option>
+                        </select>
+                    </div>
                 </div>
             </div>
         </div>

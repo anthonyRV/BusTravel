@@ -114,10 +114,12 @@ angular.module('MapsApplication', []).controller("adminController", function ($s
     //MAP section
     //<<------------------------------------------------>>//
     $scope.distritos = new Object();
+    $scope.nombresDistritos = [];
+    $scope.selectedDistrict = "";
 
     //Dimensiones del visor
-    $scope.canvasX = 640;
-    $scope.canvasY = 480;
+    $scope.canvasX = 680;
+    $scope.canvasY = 600;
 
     //Minimos
     $scope.xmin = 0;
@@ -145,7 +147,6 @@ angular.module('MapsApplication', []).controller("adminController", function ($s
                             $scope.distritos = response;
                             console.log(response);
                             $scope.factorProporcional = ($scope.distritos.data.Dimensiones.ymax - $scope.distritos.data.Dimensiones.ymin) / $scope.canvasY;
-                            console.log($scope.factorProporcional);
                             $scope.getMins();
                             $scope.dibujaDistritos();
                         },
@@ -163,6 +164,7 @@ angular.module('MapsApplication', []).controller("adminController", function ($s
         context.clearRect(0, 0, canvas.width, canvas.height);
         $scope.distritos.data.objs.forEach(function (value)
         {
+            $scope.nombresDistritos.push(value.distrito);
             var size = value.coordenada.coordinates[0][0].length;
             for (i = 0; i < (size - 2); i++)
             {
@@ -170,10 +172,8 @@ angular.module('MapsApplication', []).controller("adminController", function ($s
                 var y = value.coordenada.coordinates[0][0][i][1];
 
 
-                x = Math.round((x - $scope.xmin) / $scope.factorProporcional);
+                x = Math.round((x - $scope.xmin ) / $scope.factorProporcional);
                 y = Math.round((y - $scope.ymin) / $scope.factorProporcional);
-
-                console.log(x + " , "+ y);
 
                 y = $scope.canvasY - y;
 
@@ -199,6 +199,7 @@ angular.module('MapsApplication', []).controller("adminController", function ($s
             }
             context.closePath();
             context.fillStyle = "rgb(240,221,123)";
+            context.stroke();
             context.fill();
         });
     };
