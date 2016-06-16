@@ -74,14 +74,20 @@ angular.module('MapsApplication', []).controller("adminController", function ($s
                 console.log("Error loading the terminals");
             });
     }
+    load();
     //Database actions for admin views
     $scope.databaseAction = function (view, action) {
         //Get terminals
         //if (view == "terminal" && action == "get") {
 
-            //http://localhost:8080//BusTravelCR/php/newTerminal.php?action=get
+            //http://localhost:8080//BusTravelCR/php/terminal.php?action=get
         //}
-        if (view.equals("terminal") && action.equals("insert")) { //Insert Terminal
+        if (view == "terminal" && action == "insert") { //Insert Terminal
+            $http.post("../php/terminal.php?action=insert&name="+$scope.busTerminal).
+                success(function(data, status){
+                    $scope.hello = data;
+                });
+            load();
             /*$http({method: 'GET', url: '../php/terminal.php?action=get'}).
                 then(
                         function (response)
@@ -97,7 +103,6 @@ angular.module('MapsApplication', []).controller("adminController", function ($s
             //http://localhost:8080//BusTravelCR/php/newTerminal.php?action=insert&name=Prueba1&locationXY=asdf
         }
     };
-    load();
 
     //MAP section
     //<<------------------------------------------------>>//

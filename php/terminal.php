@@ -25,7 +25,7 @@ class Terminal{
         echo json_encode($respuesta);
     }
 
-    function insertTerminal($name,$locationXY){
+    function insertTerminal($name){
         $user = "postgres";
         $password = "postgres";
         $dbname = "postGIS";
@@ -43,9 +43,8 @@ if($_REQUEST['action']== 'get'){
     $terminal->getTerminals();
 }
 if($_REQUEST['action'] == 'insert'){
-    //http://localhost:81/database%20scripts/Person.php?action=insert&fName=yorbi&lName=mendez&id=207160775&user=yorbigmendez&pass=1234&email=ymenderz&admission=1993-09-30&typeUser=admin&gender=Male
     $terminal->getTerminals();
-    $terminal->insertTerminal($_REQUEST['name'], $_REQUEST['locationXY']);
+    $terminal->insertTerminal($_REQUEST['name']);
 }
 
 
